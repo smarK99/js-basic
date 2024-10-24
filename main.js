@@ -121,15 +121,113 @@
 
 // console.log(pares)
 
-//DOM
+// //DOM
+// //Ejercicio 1(agregar onclick="cambiarColorParrafos()")
+
+// function cambiarColorParrafos() {
+  
+//   var parrafos = document.querySelectorAll("p");
+
+//   parrafos.forEach(function(parrafo) {
+//     parrafo.style.color = 'blue';
+//   });
+
+// }
+
+// //Otra forma
+// const boton = document.getElementById("btn");
+// const parrafos = document.querySelectorAll("p");
+
+// boton.addEventListener("click", function() {
+//     parrafos.forEach(p => {
+//       p.style.color = "blue"; 
+//     });
+// });
+
+// //Ejercicio 2
+
+// const botoncito = document.getElementById("btn2")
+// const entrada = document.getElementById("txt")
+
+// botoncito.addEventListener("click", function(){
+//     alert(entrada.value)
+// });
+
+//Eventos en DOM
 //Ejercicio 1
+  var lista = document.getElementById('lista');
+  var elementosLi = lista.getElementsByTagName('li');
 
-const parrafo = document.getElementById("p").innerHTML
-const button = document.getElementById("change")
+  // Itera sobre cada elemento <li> y agrega un evento click
+  for (var i = 0; i < elementosLi.length; i++) {
+    elementosLi[i].addEventListener('click', function() {
+    // Muestra el texto del elemento <li> en la consola
+    console.log(this.textContent);
+    });
+  }
 
-button.addEventListener("click", function(){
-  parrafo.style.color = "blue";
-})
+// //Ejercicio 2
+// const campo = document.getElementById("campo")
+// const hab = document.getElementById("on")
+// const deshab = document.getElementById("off")
+
+// hab.addEventListener('click', function() {
+//   campo.disabled = false;
+// });
+
+// deshab.addEventListener('click', function() {
+//   campo.disabled = true;
+// });
+
+//LocalStorage
+//Ejercicio 1 
+// Función para mostrar el correo guardado en el DOM
+function mostrarCorreoGuardado() {
+  var correoGuardado = localStorage.getItem('correo');
+  var correoGuardadoDiv = document.getElementById('correoGuardado');
+  var eliminarBtn = document.getElementById('eliminarBtn');
+
+  if (correoGuardado) {
+      correoGuardadoDiv.textContent = 'Correo guardado: ' + correoGuardado;
+      eliminarBtn.style.display = 'block';
+  } else {
+      correoGuardadoDiv.textContent = '';
+      eliminarBtn.style.display = 'none';
+  }
+}
+
+// Mostrar el correo guardado al cargar la página
+document.addEventListener('DOMContentLoaded', mostrarCorreoGuardado);
+
+// Manejar el envío del formulario
+document.getElementById('correoForm').addEventListener('submit', function(event) {
+  event.preventDefault(); // Evitar el envío del formulario
+
+  var correoInput = document.getElementById('correo');
+  var correo = correoInput.value;
+
+  // Guardar el correo en localStorage
+  localStorage.setItem('correo', correo);
+
+  // Mostrar el correo guardado en el DOM
+  mostrarCorreoGuardado();
+
+  // Limpiar el campo de entrada
+  correoInput.value = '';
+});
+
+// Manejar el botón de eliminar
+document.getElementById('eliminarBtn').addEventListener('click', function() {
+  // Eliminar el correo de localStorage
+  localStorage.removeItem('correo');
+
+  // Mostrar el correo guardado en el DOM
+  mostrarCorreoGuardado();
+});
+
+
+
+
 
 
 

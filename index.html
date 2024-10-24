@@ -7,10 +7,48 @@
     <title>Vite App</title>
   </head>
   <body>
-    <p id="p">Este es el primer parrafo</p>
-    <p id="p">Este es el primer parrafo</p>
-    <p id="p">Este es el primer parrafo</p>
-    <button id="change">Cambiar color a azul</button>
-    <script type="module" src="/main.js"></script>
+    <p class="p">Este es el primer parrafo</p>
+    <p class="p">Este es el primer parrafo</p>
+    <p class="p">Este es el primer parrafo</p>
+    <button id="btn">Cambiar color a azul</button>
+    
+    <hr/>
+
+    <h2>Formulario con alerta</h2>
+    <form>
+      <label for="txt">Ingresa un texto:</label>
+      <input type="text" id="txt" name="txt">
+      <button id="btn2">Mostrar Alerta</button>
+    </form>
+
+    <hr/>
+
+    <h2>Lista con elementos</h2>
+    <ul id="lista">
+      <li class="item">Elemento 1</li>
+      <li class="item">Elemento 2</li>
+      <li class="item">Elemento 3</li>
+      <li class="item">Elemento 4</li>
+    </ul>
+
+    <hr/>
+    
+    <input type="text" id="campo">
+    <button id="on">Habilitar</button>
+    <button id="off">Deshabilitar</button>
+
+    <hr/>
+
+    <form id="correoForm">
+      <label for="correo">Correo Electrónico:</label>
+      <input type="email" id="correo" name="correo" required>
+      <button type="submit">Guardar Correo</button>
+  </form>
+
+  <div id="correoGuardado"></div>
+
+  <button id="eliminarBtn" style="display:none;">Eliminar Correo</button>
+
+    <script src="/main.js"></script>
   </body>
 </html>
